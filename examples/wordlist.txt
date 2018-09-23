@@ -1,0 +1,7 @@
+english	norwegian
+water	vann
+car	bil
+house	hus
+gasoline	bensin
+flower	blomst
+money	penger

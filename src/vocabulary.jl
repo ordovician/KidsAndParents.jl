@@ -29,6 +29,6 @@ function vocab_practice(words::Array{String,2}; order::Pair{Int64, Int64} = 1 =>
         println()
     end
     dt = round(time() - t)
-    println("$points/$(length(words))")
+    println("$points/$(length(dict))")
     print("Time: "); printstyled(dt, color = :light_cyan)
 end
