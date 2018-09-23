@@ -60,6 +60,45 @@ The dozenal number system has base 12. That means we count like this: 1, 2, 3, 4
     julia> parse_doz("E")
     11
 
+## Vocabulary Training
+This program was inspired by some of the first programs I wrote as a teeanger when learning programming. I used it to practice my english vocabulary, and later German vocabulary. It is a simple function `vocab_practice`, which takes a table of words, where each column is in a different language. You define the list like this at the Julia REPL:
+
+    julia> words = [
+               "english"  "norwegian";
+               "water"    "vann";
+               "car"      "bil";
+               "house"    "hus";
+               "gasoline" "bensin"]
+    5×2 Array{String,2}:
+     "english"   "norwegian"
+     "water"     "vann"     
+     "car"       "bil"      
+     "house"     "hus"      
+     "gasoline"  "bensin"
+     
+You see this gives us a 2D array or matrix. In this example we got one column of english words and one of column of norwegian words. The first row indicates the name of the languages in each column. You can the practice like this:
+
+    julia> vocab_practice(words)
+    What is water in norwegian? vann
+    Correct!
+
+    What is car in norwegian? bil
+    Correct!
+
+    What is house in norwegian? house
+    Wrong, it is hus
+    
+However you may want to ask questions in reverse order. That is asking about words in the second column. Then you can change the column order:
+
+    julia> vocab_practice(words, order = 2 => 1)
+    What is bil in english? car
+    Correct!
+
+    What is bensin in english? gasoline
+    Correct!
+    
+So in principle you can have any number of columns in the word list.
+
 
 ## Installation
 Upgraded to work with the Julia 1.0 package manager. Get into package mode on the Julia command line using the ']' key.
