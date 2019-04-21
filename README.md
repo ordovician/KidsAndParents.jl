@@ -45,19 +45,19 @@ The dozenal number system has base 12. That means we count like this: 1, 2, 3, 4
     julia> doz(11)
     "E"
 
-    julia> parse_doz("100")
+    julia> parse_doz(Int8, "100")
     144
 
-    julia> parse_doz("12")
+    julia> parse_doz(Int, "12")
     14
 
-    julia> parse_doz("10")
+    julia> parse_doz(UInt8, "10")
     12
 
-    julia> parse_doz("X")
+    julia> parse_doz(Int64, "X")
     10
 
-    julia> parse_doz("E")
+    julia> parse_doz(Int, "E")
     11
 
 ## Vocabulary Training

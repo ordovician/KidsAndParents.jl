@@ -27,7 +27,7 @@ and answers are expected in dozenal format.
 practice(5, 5:12, doz, parse_doz, operator = +)
 ```
 """
-function practice(n = 10, range = 1:9, disp = string, parser = Meta.parse; operator = *)
+function practice(n = 10, range = 1:9, disp = string, parser = parse; operator = *)
     correct = 0
     t = time()
     for i in 1:n
@@ -35,7 +35,7 @@ function practice(n = 10, range = 1:9, disp = string, parser = Meta.parse; opera
         b = rand(range)
         msg = join([disp(a), string(operator), disp(b), " = "])
         print(msg)
-        c = parser(readline(stdin))
+        c = parser(Int, readline(stdin))
         if c != operator(a, b)
             print(msg, disp(operator(a, b)))
             printstyled(" Wrong\n", color = :red)

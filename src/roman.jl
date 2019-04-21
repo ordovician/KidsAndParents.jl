@@ -43,10 +43,10 @@ function roman(x::Integer)
 end 
 
 "Parse a string of roman numerals to an integer"
-function parse_roman(s::AbstractString)
+function parse_roman(::Type{T}, s::AbstractString) where {T <: Integer}
     s = reverse(uppercase(s))
     values = [roman_numerals[ch] for ch in s]
-    x = 0
+    x = zero(T)
     for (i, v) in enumerate(values)
         if i > 1 && v < values[i - 1]
             x -= v
@@ -56,3 +56,5 @@ function parse_roman(s::AbstractString)
     end
     x 
 end
+
+parse_roman(s::AbstractString) = parse_roman(Int, s)

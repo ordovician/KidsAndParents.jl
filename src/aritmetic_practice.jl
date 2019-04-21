@@ -4,7 +4,7 @@ for i in 1:n
     a = rand(1:10)
     b = rand(1:10)
     print(a, "*", b, " = ")
-    c = Meta.parse(readline(stdin))
+    c = parse(Int, readline(stdin))
     if a*b == c
         println("Correct!")
         global score += 1

@@ -35,7 +35,7 @@ end
     parse_doz(string)
 Parse a string containing a dozenal number, producing an integer.
 """
-function parse_doz(s::AbstractString)
+function parse_doz(::Type{T}, s::AbstractString) where {T <: Integer}
     digits = Int8[]
     
     for ch in lowercase(s)
@@ -49,9 +49,11 @@ function parse_doz(s::AbstractString)
     end
     digits = reverse(digits)
     
-    x = 0
+    x = zero(T)
     for n in 1:length(digits)
         x += digits[n]*12^(n-1)
     end
     x
 end
+
+parse_doz(s::AbstractString) = parse_doz(Int, s)
